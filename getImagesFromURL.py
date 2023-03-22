@@ -13,7 +13,7 @@ import sys
 def getImages(url):
     images = []
     page = requests.get(url).text
-    soup = BeautifulSoup(page)
+    soup = BeautifulSoup(page, features="html.parser")
     imageLinks = soup.findAll("img")
     for image in imageLinks:
         images.append(image["src"]),
@@ -42,9 +42,9 @@ def toFolder(url, folderName="images", imageFormat="png"):
         with open(f"{folderName}/{imageName}.{imageFormat}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
-        print(f"Image: \033[93m{imageCount}\033[0m downloaded")
+        print(f"Image: \033[93m{imageCount}\033[0m saved")
         imageCount += 1
-    print(f"\n\033[92m{len(getImages(url))}\033[0m images downloaded to /{folderName}")
+    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to /{folderName}")
 
 
 toTXT(url)
