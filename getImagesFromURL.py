@@ -5,10 +5,6 @@ from os.path import exists
 from os import mkdir
 from pathlib import Path
 
-url = "https://www.ekleristan.com/urunler/"
-
-import sys
-
 
 def getImages(url):
     images = []
@@ -29,7 +25,7 @@ def toTXT(url, fileName="images"):
     print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to {fileName}.txt")
 
 
-def toFolder(url, folderName="images", imageFormat="png"):
+def toFolder(url, folderName="images"):
     match exists(folderName):
         case False:
             mkdir(folderName)
@@ -38,14 +34,10 @@ def toFolder(url, folderName="images", imageFormat="png"):
     for image in getImages(url):
         r = requests.get(image, stream=True)
         r.raw.decode_content = True
-        imageName = Path(r.url).stem
-        with open(f"{folderName}/{imageName}.{imageFormat}", "wb") as f:
+        imageName = Path(r.url).name.replace("?", "")
+        with open(f"{folderName}/{imageName}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
         print(f"Image: \033[93m{imageCount}\033[0m saved")
         imageCount += 1
     print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to /{folderName}")
-
-
-toTXT(url)
-toFolder(url)
