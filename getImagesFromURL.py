@@ -21,36 +21,20 @@ def getImages(url):
 
 
 def toTXT(url, fileName="images"):
+    print(f"\n\033[94m{len(getImages(url))}\033[0m images found")
     f = open(fileName + ".txt", "a")
     for image in getImages(url):
         f.write(image + "\n")
     f.close()
-
-
-def progressbar(it, prefix="", size=60, out=sys.stdout):  # Python3.3+
-    count = len(it)
-
-    def show(j):
-        x = int(size * j / count)
-        print(
-            "{}[{}{}] {}/{}".format(prefix, "#" * x, "." * (size - x), j, count),
-            end="\r",
-            file=out,
-            flush=True,
-        )
-
-    show(0)
-    for i, item in enumerate(it):
-        yield item
-        show(i + 1)
+    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to {fileName}.txt")
 
 
 def toFolder(url, folderName="images", imageFormat="png"):
     match exists(folderName):
         case False:
             mkdir(folderName)
-    imageCount = len(getImages(url))
-    print(f"{imageCount} images found")
+    imageCount = 1
+    print(f"\n\033[94m{len(getImages(url))}\033[0m images found\n")
     for image in getImages(url):
         r = requests.get(image, stream=True)
         r.raw.decode_content = True
@@ -58,3 +42,10 @@ def toFolder(url, folderName="images", imageFormat="png"):
         with open(f"{folderName}/{imageName}.{imageFormat}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
+        print(f"Image: \033[93m{imageCount}\033[0m downloaded")
+        imageCount += 1
+    print(f"\n\033[92m{len(getImages(url))}\033[0m images downloaded to /{folderName}")
+
+
+toTXT(url)
+toFolder(url)
