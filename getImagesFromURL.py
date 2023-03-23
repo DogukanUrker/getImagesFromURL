@@ -1,9 +1,9 @@
-import requests
-from bs4 import BeautifulSoup
 import shutil
-from os.path import exists
+import requests
 from os import mkdir
 from pathlib import Path
+from os.path import exists
+from bs4 import BeautifulSoup
 
 
 def getImages(url):
