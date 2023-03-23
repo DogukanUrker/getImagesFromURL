@@ -12,7 +12,7 @@ def getImages(url):
     soup = BeautifulSoup(page, features="html.parser")
     imageLinks = soup.findAll("img")
     for image in imageLinks:
-        images.append(image["src"]),
+        images.append(requests.compat.urljoin(url, image.get("src"))),
     return images
 
 
