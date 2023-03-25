@@ -17,12 +17,12 @@ def getImages(url):
 
 
 def toTXT(url, fileName="images"):
-    print(f"\n\033[94m{len(getImages(url))}\033[0m images found")
+    print(f"\n\033[94m{len(getImages(url))}\033[0m images found 🔎")
     f = open(fileName + ".txt", "a")
     for image in getImages(url):
         f.write(image + "\n")
     f.close()
-    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to {fileName}.txt")
+    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to {fileName}.txt 💾")
 
 
 def toFolder(url, folderName="images"):
@@ -30,7 +30,7 @@ def toFolder(url, folderName="images"):
         case False:
             mkdir(folderName)
     imageCount = 1
-    print(f"\n\033[94m{len(getImages(url))}\033[0m images found\n")
+    print(f"\n\033[94m{len(getImages(url))}\033[0m images found 🔎\n")
     for image in getImages(url):
         r = requests.get(image, stream=True)
         r.raw.decode_content = True
@@ -40,4 +40,4 @@ def toFolder(url, folderName="images"):
             shutil.copyfileobj(r.raw, f)
         print(f"Image: \033[93m{imageCount}\033[0m saved")
         imageCount += 1
-    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to /{folderName}")
+    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to /{folderName} 💾")
