@@ -1,5 +1,4 @@
 import sys
-import random
 from getImagesFromURL import toFolder, toTXT
 from PySide6 import QtCore, QtWidgets, QtGui
 
@@ -8,21 +7,29 @@ class getImagesFromURLGUI(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.url = QtWidgets.QLineEdit("url")
-        self.saveName = QtWidgets.QLineEdit("file/folder name")
+        self.url = QtWidgets.QLineEdit(
+            "https://en.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk"
+        )
+        self.saveName = QtWidgets.QLineEdit()
         self.saveName.setText("images")
-        self.button = QtWidgets.QPushButton("save images")
-        self.toFile = QtWidgets.QRadioButton("file")
-        self.toFolder = QtWidgets.QRadioButton("folder")
+        self.button = QtWidgets.QPushButton("Save 💾")
+        self.radioLabel = QtWidgets.QLabel("Save images to ...")
+        self.saveNameLabel = QtWidgets.QLabel("File/Folder name:")
+        self.toFile = QtWidgets.QRadioButton("File 📄")
+        self.toFolder = QtWidgets.QRadioButton("Folder 📂")
         self.toFile.setObjectName("toFile")
         self.toFolder.setObjectName("toFolder")
         self.toFolder.setChecked(True)
         self.layout = QtWidgets.QVBoxLayout(self)
         self.layout.addWidget(self.url)
+        self.layout.addWidget(self.saveNameLabel)
         self.layout.addWidget(self.saveName)
+        self.layout.addWidget(self.radioLabel)
+        self.layoutRadioButtons = QtWidgets.QHBoxLayout(self)
+        self.layoutRadioButtons.addWidget(self.toFile)
+        self.layoutRadioButtons.addWidget(self.toFolder)
+        self.layout.addLayout(self.layoutRadioButtons)
         self.layout.addWidget(self.button)
-        self.layout.addWidget(self.toFile)
-        self.layout.addWidget(self.toFolder)
         self.button.clicked.connect(self.getImagesFromURL)
 
     @QtCore.Slot()
@@ -37,7 +44,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication([])
 
     widget = getImagesFromURLGUI()
-    widget.resize(400, 400)
+    widget.resize(400, 0)
     widget.show()
 
     sys.exit(app.exec())
