@@ -12,17 +12,19 @@ def getImages(url):
     soup = BeautifulSoup(page, features="html.parser")
     imageLinks = soup.findAll("img")
     for image in imageLinks:
-        images.append(requests.compat.urljoin(url, image.get("src"))),
+        images.append(requests.compat.urljoin(url, image.get("src")[:350])),
     return images
 
 
-def toTXT(url, fileName="images"):
+def toFile(url, fileName="images"):
+    if not ".txt" in fileName:
+        fileName += ".txt"
     print(f"\n\033[94m{len(getImages(url))}\033[0m images found 🔎")
-    f = open(fileName + ".txt", "a")
+    f = open(fileName, "a")
     for image in getImages(url):
         f.write(image + "\n")
     f.close()
-    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to {fileName}.txt 💾")
+    print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to {fileName} 💾")
 
 
 def toFolder(url, folderName="images"):
@@ -37,9 +39,9 @@ def toFolder(url, folderName="images"):
         imageName = Path(r.url).name.replace("?", "")
         if not "." in imageName:
             imageName += ".png"
-        with open(f"{folderName}/{imageName[:128]}", "wb") as f:
+        with open(f"{folderName}/{imageName}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
-        print(f"Image: \033[93m{imageCount}\033[0m saved")
+        print(f'Image \033[94m{imageCount}\033[0m: "\033[93m{imageName}\033[0m" saved')
         imageCount += 1
     print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to /{folderName} 💾")
