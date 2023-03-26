@@ -1,6 +1,6 @@
 import sys
 from PySide6 import QtCore, QtWidgets
-from getImagesFromURL import toFolder, toFile, getImages
+from getImagesFromURL import toFile, toFolder, getImages
 
 
 class getImagesFromURLGUI(QtWidgets.QWidget):
