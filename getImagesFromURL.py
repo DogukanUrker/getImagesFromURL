@@ -42,6 +42,8 @@ def toFolder(url, folderName="images"):
         with open(f"{folderName}/{imageName}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
-        print(f'Image \033[94m{imageCount}\033[0m: "\033[93m{imageName}\033[0m" saved')
+        print(
+            f'Image \033[95m{imageCount}\033[0m: "\033[93m{imageName}\033[0m" saved from "\033[94m{image}\033[0m"\n'
+        )
         imageCount += 1
     print(f"\n\033[92m{len(getImages(url))}\033[0m images saved to /{folderName} 💾")
