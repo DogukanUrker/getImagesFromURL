@@ -25,7 +25,7 @@ class getImagesFromURLGUI(QtWidgets.QWidget):
         self.layout.addWidget(self.saveNameLabel)
         self.layout.addWidget(self.saveName)
         self.layout.addWidget(self.radioLabel)
-        self.layoutRadioButtons = QtWidgets.QHBoxLayout(self)
+        self.layoutRadioButtons = QtWidgets.QHBoxLayout()
         self.layoutRadioButtons.addWidget(self.toFile)
         self.layoutRadioButtons.addWidget(self.toFolder)
         self.layout.addLayout(self.layoutRadioButtons)
@@ -36,15 +36,20 @@ class getImagesFromURLGUI(QtWidgets.QWidget):
     def getImagesFromURL(self):
         if self.toFile.isChecked():
             toTXT(self.url.text(), self.saveName.text())
+            self.button.setText(f"Images saved to {self.saveName.text()}.txt 📄")
         elif self.toFolder.isChecked():
             toFolder(self.url.text(), self.saveName.text())
+            self.button.setText(f"Images saved to /{self.saveName.text()} 📂")
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
-
+    app.setStyleSheet(
+        ".QLabel,.QRadioButton,.QPushButton { font-size: 12pt;} QLineEdit { font-size: 11pt;}"
+    )
     widget = getImagesFromURLGUI()
-    widget.resize(400, 0)
+    widget.resize(450, 220)
+    widget.setWindowTitle("getImagesFromURL")
     widget.show()
 
     sys.exit(app.exec())
