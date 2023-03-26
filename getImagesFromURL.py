@@ -37,7 +37,6 @@ def toFolder(url, folderName="images"):
         imageName = Path(r.url).name.replace("?", "")
         if not "." in imageName:
             imageName += ".png"
-        print(imageName)
         with open(f"{folderName}/{imageName[:128]}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
