@@ -35,7 +35,10 @@ def toFolder(url, folderName="images"):
         r = requests.get(image, stream=True)
         r.raw.decode_content = True
         imageName = Path(r.url).name.replace("?", "")
-        with open(f"{folderName}/{imageName}", "wb") as f:
+        if not "." in imageName:
+            imageName += ".png"
+        print(imageName)
+        with open(f"{folderName}/{imageName[:128]}", "wb") as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
         print(f"Image: \033[93m{imageCount}\033[0m saved")
