@@ -1,5 +1,5 @@
 import sys
-from getImagesFromURL import toFolder, toTXT
+from getImagesFromURL import toFolder, toFile
 from PySide6 import QtCore, QtWidgets, QtGui
 
 
@@ -33,8 +33,9 @@ class getImagesFromURLGUI(QtWidgets.QWidget):
     @QtCore.Slot()
     def getImagesFromURL(self):
         if self.toFile.isChecked():
-            toTXT(self.url.text(), self.saveName.text())
-            self.button.setText(f"Images saved to {self.saveName.text()}.txt 📄")
+            toFile(self.url.text(), self.saveName.text())
+            fileName = self.saveName.text().replace(".txt", "")
+            self.button.setText(f"Images saved to {fileName}.txt 📄")
         elif self.toFolder.isChecked():
             toFolder(self.url.text(), self.saveName.text())
             self.button.setText(f"Images saved to /{self.saveName.text()} 📂")
