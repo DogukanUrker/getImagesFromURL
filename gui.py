@@ -1,12 +1,11 @@
 import sys
-from getImagesFromURL import toFolder, toFile, getImages
 from PySide6 import QtCore, QtWidgets
+from getImagesFromURL import toFolder, toFile, getImages
 
 
 class getImagesFromURLGUI(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
-
         self.url = QtWidgets.QLineEdit("https://github.com/DogukanUrker")
         self.saveName = QtWidgets.QLineEdit()
         self.saveName.setText("Images")
