@@ -7,11 +7,9 @@ class getImagesFromURLGUI(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.url = QtWidgets.QLineEdit(
-            "https://en.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk"
-        )
+        self.url = QtWidgets.QLineEdit("https://github.com/DogukanUrker")
         self.saveName = QtWidgets.QLineEdit()
-        self.saveName.setText("images")
+        self.saveName.setText("Images")
         self.button = QtWidgets.QPushButton("Save 💾")
         self.radioLabel = QtWidgets.QLabel("Save images to ...")
         self.saveNameLabel = QtWidgets.QLabel("File/Folder name:")
@@ -51,5 +49,4 @@ if __name__ == "__main__":
     widget.resize(450, 220)
     widget.setWindowTitle("getImagesFromURL")
     widget.show()
-
     sys.exit(app.exec())
