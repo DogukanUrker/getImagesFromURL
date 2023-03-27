@@ -30,6 +30,8 @@ it's ready to run 🎉
 
 ### CLI
 
+Enter `python cli.py` to your terminal.
+
 Enter a link, select method for saving images and enter file/folder name for images.
 
 ![CLI](/appImages/cli.png)
@@ -39,5 +41,7 @@ All images saved!
 ![CLI](/appImages/cli2.png)
 
 ### GUI
+
+Enter `python gui.py` to your terminal.
 
 ![GUI](/appImages/gui.png)
