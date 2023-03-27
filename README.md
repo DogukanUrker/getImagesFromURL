@@ -7,9 +7,9 @@ Download images from URL.
 
 ## Requirements
 
-- Typer
-- PySide6
 - Requests
+- Typer <sub><sup>for CLI</sup></sub>
+- PySide6 <sub><sup>for GUI</sup></sub>
 - BeautifulSoup4
 
 ## Installation
