@@ -3,19 +3,19 @@ from getImagesFromURL import toFolder, toFile
 
 
 def getImagesFromURLCLI():
-    url = typer.prompt("Enter URL 🌐")
+    url = typer.prompt("\nEnter URL 🌐")
     method = typer.confirm(
-        """Save images to ...
+        """\nSave images to ...
          Y: File 📄
          N: Folder 📂
         """
     )
     match method:
         case True:
-            filename = typer.prompt("File name 📄")
+            filename = typer.prompt("\nFile name 📄")
             toFile(url, filename)
         case False:
-            foldername = typer.prompt("Folder name 📂")
+            foldername = typer.prompt("\nFolder name 📂")
             toFolder(url, foldername)
 
 
