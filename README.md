@@ -1,4 +1,4 @@
-# [getImagesFromURL🌐💾](https://dogukanurker.com/getImagesFromURL)
+# [getImagesFromURL🌐💾](https://dogukanurker.com/getimagesfromurl)
 
 Download images from URL.
 <br/>
