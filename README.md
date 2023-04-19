@@ -45,3 +45,13 @@ All images saved!
 Enter `python gui.py` to your terminal.
 
 ![GUI](/appImages/gui.png)
+
+#### Contributors
+
+<a href="https://github.com/dogukanurker/getimagesfromurl/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dogukanurker/getimagesfromurl" />
+</a>
+
+#### Support
+
+<a href="https://www.buymeacoffee.com/dogukanurker" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
