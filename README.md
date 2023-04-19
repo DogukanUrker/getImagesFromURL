@@ -5,14 +5,14 @@ Download images from URL.
 [Contact](mailto:dogukanurker@icloud.com)<br/>
 [Dogukan Urker](https://dogukanurker.com)
 
-## Requirements
+## Requirements 📦
 
 - Requests
 - Typer <sub><sup>for CLI</sup></sub>
 - PySide6 <sub><sup>for GUI</sup></sub>
 - BeautifulSoup4
 
-## Installation
+## Installation ⬇️
 
 download source code from Github 💾
 `git clone https://github.com/DogukanUrker/getImagesFromURL.git`
@@ -26,9 +26,9 @@ install requirements.txt 🔽
 it's ready to run 🎉
 `python cli.py` or `python gui.py`
 
-## Usage
+## Usage 📄
 
-### CLI
+### CLI 📟
 
 Enter `python cli.py` to your terminal.
 
@@ -40,18 +40,18 @@ All images saved!
 
 ![CLI](/appImages/cli2.png)
 
-### GUI
+### GUI 📱
 
 Enter `python gui.py` to your terminal.
 
 ![GUI](/appImages/gui.png)
 
-#### Contributors
+### Contributors 💕
 
 <a href="https://github.com/dogukanurker/getimagesfromurl/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=dogukanurker/getimagesfromurl" />
 </a>
 
-#### Support
+### Support 💰
 
 <a href="https://www.buymeacoffee.com/dogukanurker" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
