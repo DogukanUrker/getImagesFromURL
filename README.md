@@ -48,9 +48,7 @@ Enter `python gui.py` to your terminal.
 
 ### Contributors 💕
 
-<a href="https://github.com/dogukanurker/getimagesfromurl/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dogukanurker/getimagesfromurl" />
-</a>
+<a href="https://github.com/dogukanurker"><img src="https://avatars.githubusercontent.com/u/62756402" title="ngryman" width="80" height="80"></a>
 
 ### Support 💰
 
